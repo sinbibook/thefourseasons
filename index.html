@@ -2,6 +2,26 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <!-- 렌더 게이트: 매핑 전 화면 / 랜딩으로 넘어가기 전 index 깜빡임 방지 (매핑 완료 시 페이드인)
+         해제: IndexMapper.map 완료 시 __tplReveal (랜딩 판단 중엔 index-mapper.js 조기 랜딩 가드가 붙잡아 둔다) -->
+    <style>
+      html.tpl-loading body {
+        opacity: 0;
+      }
+      body {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('tpl-loading');
+      window.__tplReveal = function () {
+        document.documentElement.classList.remove('tpl-loading');
+      };
+      setTimeout(function () {
+        window.__tplReveal && window.__tplReveal();
+      }, 3000);
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="data:,">
     <title>홍천 비발디사계 - 홈</title>
@@ -18,14 +38,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="홍천 비발디사계 - 홈" />
   <meta property="og:description" content="2025년 11월 신축 펜션, 비발디파크, 힐드로사이CC 근처  개별·공용 BBQ, 애견동반·픽업이 가능합니다. (단체 파티 환영)" />
-  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/08/06/21jQlp0vJDYy.jpg" />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/02/WFxViLpKC2lw.jpg" />
   <meta property="og:url" content="https://thefourseasons.kr" />
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="홍천 비발디사계 - 홈" />
   <meta name="twitter:description" content="2025년 11월 신축 펜션, 비발디파크, 힐드로사이CC 근처  개별·공용 BBQ, 애견동반·픽업이 가능합니다. (단체 파티 환영)" />
-  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/08/06/21jQlp0vJDYy.jpg" />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/10/02/WFxViLpKC2lw.jpg" />
   <meta name="naver-site-verification" content="5083fbded7a2ae9349753f4cf96fd6a527cbfdec" />
   <meta name="google-site-verification" content="j2rV8_3E282J8hrFPj9aREhYEykd4rRCX8iHy9RCC_4" />
 </head>
